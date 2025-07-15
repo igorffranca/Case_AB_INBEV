@@ -1,6 +1,6 @@
 # Case AB InBev - Igor França
 
-Este projeto implementa um pipeline de dados para processamento e análise de dados da AB InBev, com suporte para execução local ou utilizando Apache Airflow como orquestrador.
+Este projeto implementa um pipeline de dados utilizando Apache Airflow para consumir, transformar e persistir dados da Open Brewery DB, seguindo a arquitetura Medallion (Bronze, Silver e Gold).
 
 ## Pré-requisitos
 
@@ -12,57 +12,25 @@ Este projeto implementa um pipeline de dados para processamento e análise de da
 ```
 CASE_AB_INBEV/
 ├── airflow/
-│   ├── Dockerfile
-│   └── requirements.txt
+│ ├── Dockerfile
+│ └── requirements.txt
 ├── dags/
-│   └── case_abinbev_pipeline.py
+│ └── case_abinbev_pipeline.py
 ├── datalake/
-│   ├── bronze/
-│   ├── gold/
-│   └── silver/
+│ ├── bronze/
+│ ├── silver/
+│ └── gold/
 ├── etl/
-│   ├── extract.py
-│   ├── load.py
-│   └── transform.py
+│ ├── extract.py
+│ ├── load.py
+│ └── transform.py
 ├── docker-compose.yml
-├── Dockerfile
-├── main.py
 ├── README.md
-└── requirements.txt
 ```
 
 ## Como Executar
 
-### Opção 1: Execução Local
-
-Para executar o pipeline localmente utilizando Docker:
-
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/igorffranca/Case_AB_INBEV.git
-   cd CASE_AB_INBEV
-   ```
-
-2. **Certifique-se de que o Docker Desktop está em execução**
-
-3. **Construa a imagem Docker:**
-   ```bash
-   docker build -t case-abinbev-igorfranca .
-   ```
-
-4. **Execute o container:**
-   - No PowerShell (Windows):
-     ```powershell
-     docker run --rm -v "${PWD}/datalake:/app/datalake" case-abinbev-igorfranca
-     ```
-   - No Terminal Unix/Linux/Mac:
-     ```bash
-     docker run --rm -v "$(pwd)/datalake:/app/datalake" case-abinbev-igorfranca
-     ```
-
-### Opção 2: Execução com Apache Airflow
-
-Para executar o pipeline utilizando Apache Airflow como orquestrador:
+Para executar o pipeline:
 
 1. **Clone o repositório:**
    ```bash
@@ -121,27 +89,19 @@ O projeto utiliza volumes Docker para persistir os dados processados:
 
 ### Arquivos de Configuração
 
-- **Dockerfile (raiz):** Para execução local
-- **airflow/Dockerfile:** Para execução com Airflow
-- **docker-compose.yml:** Configuração dos serviços do Airflow
-- **requirements.txt:** Dependências Python do projeto
+- **airflow/Dockerfile**: Configura a imagem do Airflow
+- **airflow/requirements.txt**: Dependências do projeto
+- **docker-compose.yml**: Orquestra os serviços do Airflow
 
 ## Logs e Monitoramento
 
-- **Execução Local:** Os logs são exibidos diretamente no terminal
-- **Execução com Airflow:** Os logs podem ser visualizados na interface web do Airflow
+Todos os logs de execução estão disponíveis na interface web do Airflow, na aba **DAGs > Logs**
 
 
 ## Suporte
 
 Para dúvidas ou problemas:
 
+- **Igor França** 
 - **Email:** igorffrancaa@gmail.com
 - Verifique se o Docker Desktop está em execução
-
-## Tecnologias Utilizadas
-
-- Python
-- Docker
-- Apache Airflow
-- Docker Compose
