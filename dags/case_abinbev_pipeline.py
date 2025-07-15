@@ -10,11 +10,14 @@ from etl.extract import save_extract_files_bronze
 from etl.transform import transform_save_parquet_silver
 from etl.load import count_save_gold
 
+
+# Create spark session
 def create_spark_session():
     return SparkSession.builder \
         .appName('ETL-Case-AbInbev-IgorFerreiraFranca') \
         .getOrCreate()
 
+# Extract data and save data on json format
 def run_extract():
     spark = create_spark_session()
     date_today = str(datetime.now().date())
@@ -22,6 +25,7 @@ def run_extract():
     save_extract_files_bronze(spark, bronze_path)
     spark.stop()
 
+# Apply some transformations and save data on parquet format
 def run_transform():
     spark = create_spark_session()
     date_today = str(datetime.now().date())
@@ -31,6 +35,7 @@ def run_transform():
     transform_save_parquet_silver(df_bronze, silver_path)
     spark.stop()
 
+# Aggregate data and save on parquet format
 def run_load():
     spark = create_spark_session()
     date_today = str(datetime.now().date())
@@ -54,6 +59,7 @@ default_args = {
     'retries': 3,
 }
 
+# Pipeline is set to run every day at 09am
 with DAG(
     dag_id='case_abinbev',
     default_args=default_args,
