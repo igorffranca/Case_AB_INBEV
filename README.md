@@ -2,6 +2,8 @@
 
 Este projeto implementa um pipeline de dados utilizando Apache Airflow para consumir, transformar e persistir dados da Open Brewery DB, seguindo a arquitetura Medallion (Bronze, Silver e Gold).
 
+**Obs.**: A extração está limitada as 100 primeiras páginas da API para evitar longos tempos de execução, já que o total ultrapassa 3.000 páginas.
+
 ## Pré-requisitos
 
 - Docker Desktop instalado e em execução
