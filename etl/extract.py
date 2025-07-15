@@ -3,7 +3,7 @@ from datetime import datetime
 from pyspark.sql.types import StructField, StructType, StringType, DoubleType
 import json
 
-
+# Extract data from API
 def extract_data():
     page = 1
     data_list = []
@@ -18,6 +18,8 @@ def extract_data():
         page += 1
     return data_list
 
+
+# Clean data
 def clean_data(data):
     cleaned_data = []
     for item in data:
@@ -42,7 +44,7 @@ def clean_data(data):
         cleaned_data.append(cleaned_item)
     return cleaned_data
 
-
+# Create schema for dataframe
 schema = StructType([
     StructField("id", StringType(), True),
     StructField("name", StringType(), True),
@@ -62,6 +64,7 @@ schema = StructType([
     StructField("street", StringType(), True)
 ])
 
+# Function that extract, clean and save the data
 def save_extract_files_bronze(spark, output):
     data = extract_data()
     cleaned_data = clean_data(data)

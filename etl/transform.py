@@ -3,7 +3,7 @@ from pyspark.sql.functions import col, concat_ws, regexp_replace, udf
 import unicodedata, re
 from pyspark.sql.types import StringType
 
-
+# Function to normalize the data
 def normalize(text):
     if text is None:
         return None
@@ -12,6 +12,7 @@ def normalize(text):
 
 normalize_udf = udf(normalize, StringType())
 
+# Function to create new column, normalize data and partition data by Location
 def transform_save_parquet_silver(df, output):
     df = df.withColumn('state', normalize_udf(col('state'))) \
         .withColumn('country', normalize_udf(col('country'))) \
