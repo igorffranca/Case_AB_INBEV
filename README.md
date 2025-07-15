@@ -39,7 +39,7 @@ Para executar o pipeline localmente utilizando Docker:
 
 1. **Clone o repositório:**
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/igorffranca/Case_AB_INBEV.git
    cd CASE_AB_INBEV
    ```
 
@@ -66,7 +66,7 @@ Para executar o pipeline utilizando Apache Airflow como orquestrador:
 
 1. **Clone o repositório:**
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/igorffranca/Case_AB_INBEV.git
    cd CASE_AB_INBEV
    ```
 
