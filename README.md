@@ -131,13 +131,6 @@ O projeto utiliza volumes Docker para persistir os dados processados:
 - **Execução Local:** Os logs são exibidos diretamente no terminal
 - **Execução com Airflow:** Os logs podem ser visualizados na interface web do Airflow
 
-## Desenvolvimento
-
-Para desenvolver ou modificar o pipeline:
-
-1. Faça as alterações necessárias nos arquivos Python
-2. Reconstrua a imagem Docker
-3. Execute novamente o container
 
 ## Suporte
 
@@ -145,12 +138,10 @@ Para dúvidas ou problemas:
 
 - **Email:** igorffrancaa@gmail.com
 - Verifique se o Docker Desktop está em execução
-- Confirme se as portas necessárias estão disponíveis (8080 para Airflow)
 
 ## Tecnologias Utilizadas
 
 - Python
 - Docker
 - Apache Airflow
-- Pandas (presumido)
 - Docker Compose
