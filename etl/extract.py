@@ -66,4 +66,4 @@ def save_extract_files_bronze(spark, output):
     data = extract_data()
     cleaned_data = clean_data(data)
     df_data_pyspark = spark.createDataFrame(cleaned_data, schema)
-    df_data_pyspark.write.mode("overwrite").json(output)
+    df_data_pyspark.write.mode("overwrite").option("overwriteSchema", "true").json(output)

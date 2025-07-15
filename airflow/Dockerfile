@@ -12,7 +12,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # Copia requirements antes de mudar de usuário
-COPY requirements.txt .
+COPY airflow/requirements.txt .
 
 # Muda para usuário airflow depois
 USER airflow

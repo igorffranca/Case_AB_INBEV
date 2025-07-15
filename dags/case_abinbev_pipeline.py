@@ -50,15 +50,16 @@ def run_load():
 
 default_args = {
     'owner': 'igorferreirafranca',
-    'start_date': datetime(2025, 7, 15),
-    'retries': 1,
+    'start_date': datetime(2025, 7, 15, 9, 0),
+    'retries': 3,
 }
 
 with DAG(
     dag_id='case_abinbev',
     default_args=default_args,
-    schedule_interval='@daily',
-    catchup=False
+    schedule_interval='0 9 * * *',
+    catchup=False,
+    max_active_runs=1
 ) as dag:
 
     extract_task = PythonOperator(
