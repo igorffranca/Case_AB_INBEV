@@ -53,10 +53,13 @@ def run_load():
     ''').show(50, truncate=False)
     spark.stop()
 
+# Set arguments
 default_args = {
     'owner': 'igorferreirafranca',
     'start_date': datetime(2025, 7, 15, 9, 0),
     'retries': 3,
+    'email_on_failure': True,
+    'email': ['igorffrancaa@gmail.com']
 }
 
 # Pipeline is set to run every day at 09am
