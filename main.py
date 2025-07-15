@@ -26,6 +26,6 @@ spark.sql('''
         *
     FROM gold
     ORDER BY brewery_count DESC
-''').show(50, truncate=False)
+''').show(100, truncate=False)
 
 spark.stop()
