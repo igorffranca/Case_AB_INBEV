@@ -32,7 +32,11 @@ def run_transform():
     bronze_path = f'/opt/airflow/datalake/bronze/breweries_{date_today}'
     silver_path = f'/opt/airflow/datalake/silver/breweries_{date_today}'
     df_bronze = spark.read.json(bronze_path)
-    transform_save_parquet_silver(df_bronze, silver_path)
+    if df_bronze.count() > 0:
+        transform_save_parquet_silver(df_bronze, silver_path)
+    else:
+        print('No data')
+        
     spark.stop()
 
 # Aggregate data and save on parquet format
