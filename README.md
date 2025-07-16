@@ -22,7 +22,7 @@ CASE_AB_INBEV/
 │ ├── bronze/
 │ ├── silver/
 │ └── gold/
-├── etl/
+├── elt/
 │ ├── extract.py
 │ ├── load.py
 │ └── transform.py
