@@ -75,7 +75,7 @@ O pipeline implementa a arquitetura de Medallion com três camadas:
 - **Silver:** Dados limpos e transformados
 - **Gold:** Dados agregados e prontos para análise
 
-### Componentes ETL
+### Componentes ELT
 
 - **extract.py:** Responsável pela extração de dados das fontes
 - **transform.py:** Aplica transformações e limpeza nos dados
