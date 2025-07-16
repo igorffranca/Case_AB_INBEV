@@ -78,8 +78,8 @@ O pipeline implementa a arquitetura de Medallion com três camadas:
 ### Componentes ELT
 
 - **extract.py:** Responsável pela extração de dados das fontes
+- **load.py:** Carrega os dados no data lake
 - **transform.py:** Aplica transformações e limpeza nos dados
-- **load.py:** Carrega os dados processados no data lake
 
 ## Configuração
 
