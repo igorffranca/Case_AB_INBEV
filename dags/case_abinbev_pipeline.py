@@ -6,15 +6,15 @@ from pyspark.sql import SparkSession
 
 sys.path.append('/opt/airflow')
 
-from etl.extract import save_extract_files_bronze
-from etl.transform import transform_save_parquet_silver
-from etl.load import count_save_gold
+from elt.extract import save_extract_files_bronze
+from elt.transform import transform_save_parquet_silver
+from elt.load import count_save_gold
 
 
 # Create spark session
 def create_spark_session():
     return SparkSession.builder \
-        .appName('ETL-Case-AbInbev-IgorFerreiraFranca') \
+        .appName('ELT-Case-AbInbev-IgorFerreiraFranca') \
         .getOrCreate()
 
 # Extract data and save data on json format

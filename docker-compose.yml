@@ -19,7 +19,7 @@ services:
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./etl:/opt/airflow/etl
+      - ./elt:/opt/airflow/elt
       - ./datalake:/opt/airflow/datalake
     ports:
       - "8080:8080"
@@ -36,7 +36,7 @@ services:
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./etl:/opt/airflow/etl
+      - ./elt:/opt/airflow/elt
       - ./datalake:/opt/airflow/datalake
     command: scheduler
 
